@@ -85,7 +85,7 @@
             right: 50px;
             width: 120px;
             animation: float 3s ease-in-out infinite;
-            z-index: 2;
+            z-index: 0;
             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
         }
         
@@ -131,7 +131,7 @@
             transition: transform 0.3s, box-shadow 0.3s;
             box-shadow: 0 6px 20px rgba(6, 199, 85, 0.4);
             position: relative;
-            z-index: 1;
+            z-index: 10;
             animation: shake 2s ease-in-out infinite;
         }
         
@@ -174,15 +174,10 @@
         
         .trouble-character {
             position: absolute;
-            left: -120px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 120px;
+            right: -130px;
+            top: -30px;
+            width: 100px;
             animation: float 3s ease-in-out infinite;
-        }
-        
-        .trouble-character img {
-            mix-blend-mode: darken;
         }
         
         .trouble-list {
@@ -472,14 +467,11 @@
         
         .cta-character {
             position: absolute;
-            left: 50px;
-            bottom: 20px;
-            width: 120px;
+            left: 50%;
+            bottom: 150px;
+            transform: translateX(-250px);
+            width: 100px;
             animation: float 3s ease-in-out infinite;
-        }
-        
-        .cta-character img {
-            mix-blend-mode: darken;
         }
         
         .cta-section h2 {
@@ -521,13 +513,17 @@
             transform: scale(1.1);
         }
         
-        .btn-line::before {
-            content: '👆';
+        .btn-line-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .btn-line-pointer {
             position: absolute;
-            top: -40px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 30px;
+            right: -120px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 80px;
             animation: float 2s ease-in-out infinite;
         }
         
@@ -588,6 +584,12 @@
             }
             
             .trouble-character {
+                right: -50px;
+                top: -20px;
+                width: 70px;
+            }
+            
+            .btn-line-pointer {
                 display: none;
             }
             
@@ -602,13 +604,18 @@
         
         @media (min-width: 769px) and (max-width: 1024px) {
             .trouble-character {
-                left: -80px;
-                width: 90px;
+                right: -80px;
+                width: 80px;
             }
             
             .cta-character {
-                left: 20px;
-                width: 100px;
+                transform: translateX(-200px);
+                width: 80px;
+            }
+            
+            .btn-line-pointer {
+                right: -80px;
+                width: 60px;
             }
         }
     </style>
@@ -752,7 +759,15 @@
             <h2>まずは無料相談！</h2>
             <p>24時間以内に返信します</p>
             <div class="cta-buttons">
-                <a href="https://form.lmes.jp/landing-qr/2008007759-JBlKowGN?uLand=2j898m" class="btn-line">📱 LINEで相談する</a>
+                <div class="btn-line-wrapper">
+                    <a href="https://form.lmes.jp/landing-qr/2008007759-JBlKowGN?uLand=2j898m" class="btn-line">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 8px;">
+                            <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314" fill="white"/>
+                        </svg>
+                        LINEで相談する
+                    </a>
+                    <img src="https://raw.githubusercontent.com/yoroduyagakki-glitch/yoroduya-gakki/main/Background.png" alt="指差しキャラ" class="btn-line-pointer">
+                </div>
             </div>
             <div class="coupon-badge" style="margin-top: 30px;">🎁 今すぐLINE追加で500円OFFクーポンGET</div>
         </div>
@@ -764,7 +779,7 @@
             <div class="footer-contact">
                 <p><strong>よろづ屋がっきー</strong></p>
                 <p>📞 電話: <a href="tel:07045603032">070-4560-3032</a></p>
-                <p>📧 メール: <a href="/cdn-cgi/l/email-protection#5e27312c313a2b273f70393f3535371e39333f3732703d3133"><span class="__cf_email__" data-cfemail="ee97819c818a9b978fc0898f858587ae89838f8782c08d8183">[email&#160;protected]</span></a></p>
+                <p>📧 メール: <a href="/cdn-cgi/l/email-protection#156c7a677a71606c743b72747e7e7c557278747c793b767a78"><span class="__cf_email__" data-cfemail="98e1f7eaf7fcede1f9b6fff9f3f3f1d8fff5f9f1f4b6fbf7f5">[email&#160;protected]</span></a></p>
                 <p>🕘 営業時間: 9:00〜20:00（不定休）</p>
             </div>
             <div class="footer-legal">
