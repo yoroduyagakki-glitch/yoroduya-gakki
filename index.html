@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>よろづ屋がっきー - 福岡の家具修理・スマホ設定 | 元医療機器エンジニアが即日対応</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica', 'Arial', 'Hiragino Sans', 'ヒラギノ角ゴシック', 'Yu Gothic', 'メイリオ', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ヘッダー */
+        header {
+            background: linear-gradient(135deg, #B2C58D 0%, #E9B35C 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-character {
+            position: absolute;
+            right: 20px;
+            top: 30px;
+            width: 100px;
+            animation: float 3s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        .logo {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .tagline {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            line-height: 1.3;
+            position: relative;
+            z-index: 10;
+        }
+
+        .sub-tagline {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            position: relative;
+            z-index: 10;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            background-color: #06C755;
+            color: white;
+            text-decoration: none;
+            padding: 20px 50px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 20px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            animation: shake 2s ease-in-out infinite;
+            position: relative;
+            z-index: 10;
+        }
+
+        .cta-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .coupon-badge {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+            20%, 40%, 60%, 80% { transform: translateX(2px); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        /* お困りごとセクション */
+        .trouble {
+            padding: 80px 20px;
+            background: #f9f9f9;
+            position: relative;
+        }
+
+        .trouble h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .trouble-content {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .trouble-character {
+            position: absolute;
+            right: -130px;
+            top: -30px;
+            width: 120px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .trouble-list ul {
+            list-style: none;
+            font-size: 18px;
+            line-height: 2;
+        }
+
+        .trouble-list li {
+            margin-bottom: 15px;
+            padding-left: 40px;
+            position: relative;
+        }
+
+        .trouble-list li::before {
+            content: "😵‍💫";
+            position: absolute;
+            left: 0;
+            font-size: 24px;
+        }
+
+        /* サービスセクション */
+        .services {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .services h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #333;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+            border: 3px solid #B2C58D;
+        }
+
+        .service-character {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            margin: 0 auto 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .service-card ul {
+            list-style: none;
+            text-align: left;
+        }
+
+        .service-card li {
+            margin-bottom: 8px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .service-card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #E9B35C;
+            font-weight: bold;
+        }
+
+        .service-price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #E9B35C;
+            margin-top: 15px;
+        }
+
+        /* プロフィールセクション - スマホ完全対応 */
+        .profile {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 40px;
+        }
+
+        .profile h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #333;
+        }
+
+        .profile-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .profile-image {
+            flex-shrink: 0;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid #B2C58D;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #f9f9f9;
+        }
+
+        .profile-text {
+            flex: 1;
+        }
+
+        .profile-text h3 {
+            font-size: 24px;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .profile-text .name-sub {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .profile-text p {
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        /* 料金セクション */
+        .pricing {
+            padding: 80px 20px;
+            background: #f9f9f9;
+        }
+
+        .pricing h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #333;
+        }
+
+        .pricing-list {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .pricing-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid #B2C58D;
+        }
+
+        .pricing-item .service-name {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .pricing-item .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #E9B35C;
+        }
+
+        .pricing-note {
+            margin-top: 30px;
+            padding: 20px;
+            background: #fff8e1;
+            border-radius: 10px;
+            border-left: 4px solid #E9B35C;
+        }
+
+        .pricing-note p {
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .pricing-note p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 対応エリア */
+        .area {
+            padding: 60px 20px;
+            background: #fff;
+            text-align: center;
+        }
+
+        .area h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .area p {
+            font-size: 20px;
+            font-weight: bold;
+            color: #B2C58D;
+            margin-bottom: 15px;
+        }
+
+        .area-badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: linear-gradient(135deg, #B2C58D, #9AB57A);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 16px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* CTAセクション */
+        .cta-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #B2C58D 0%, #E9B35C 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-character {
+            position: absolute;
+            left: 50%;
+            bottom: 150px;
+            transform: translateX(-250px);
+            width: 100px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .cta-section h2 {
+            font-size: 36px;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            color: white;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-line {
+            display: inline-block;
+            background: #06C755;
+            color: white;
+            text-decoration: none;
+            padding: 20px 40px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 18px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            animation: shake 2s ease-in-out infinite;
+        }
+
+        .btn-line:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        /* フッター */
+        footer {
+            background: #333;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-contact {
+            margin-bottom: 30px;
+        }
+
+        .footer-contact p {
+            margin-bottom: 10px;
+        }
+
+        .footer-contact a {
+            color: #B2C58D;
+            text-decoration: none;
+        }
+
+        .footer-legal {
+            border-top: 1px solid #555;
+            padding-top: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* レスポンシブ対応 - 完全スマホ最適化 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            /* ヘッダー */
+            .header-character {
+                width: 60px;
+                right: 10px;
+                top: 15px;
+            }
+
+            .logo {
+                font-size: 28px;
+                margin-bottom: 10px;
+            }
+
+            .tagline {
+                font-size: 18px;
+                margin-bottom: 8px;
+                padding-right: 70px;
+                line-height: 1.3;
+            }
+
+            .sub-tagline {
+                font-size: 14px;
+                margin-bottom: 20px;
+                padding-right: 70px;
+            }
+
+            .cta-primary {
+                padding: 15px 30px;
+                font-size: 16px;
+            }
+
+            /* お困りごと */
+            .trouble {
+                padding: 50px 15px;
+            }
+
+            .trouble h2 {
+                font-size: 24px;
+                margin-bottom: 30px;
+                padding-right: 80px;
+            }
+
+            .trouble-character {
+                display: none;
+            }
+
+            .trouble-list ul {
+                font-size: 16px;
+            }
+
+            /* サービス */
+            .services {
+                padding: 50px 15px;
+            }
+
+            .services h2 {
+                font-size: 24px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .service-card {
+                padding: 20px;
+            }
+
+            .service-character {
+                width: 60px;
+                height: 60px;
+            }
+
+            .service-card h3 {
+                font-size: 20px;
+            }
+
+            /* プロフィール - 完全スマホ対応 */
+            .profile {
+                margin: 30px 15px;
+                padding: 20px;
+                border-radius: 15px;
+            }
+
+            .profile h2 {
+                font-size: 22px;
+                margin-bottom: 20px;
+            }
+
+            .profile-content {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .profile-image {
+                width: 120px;
+                height: 120px;
+                margin: 0 auto;
+            }
+
+            .profile-text {
+                width: 100%;
+            }
+
+            .profile-text h3 {
+                font-size: 18px;
+                margin-bottom: 6px;
+            }
+
+            .profile-text .name-sub {
+                font-size: 12px;
+                margin-bottom: 12px;
+                line-height: 1.3;
+            }
+
+            .profile-text p {
+                font-size: 13px;
+                line-height: 1.5;
+                margin-bottom: 10px;
+                text-align: left;
+            }
+
+            /* 料金 */
+            .pricing {
+                padding: 50px 15px;
+            }
+
+            .pricing h2 {
+                font-size: 24px;
+            }
+
+            .pricing-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .pricing-item .service-name {
+                font-size: 16px;
+            }
+
+            .pricing-item .price {
+                font-size: 18px;
+            }
+
+            /* エリア */
+            .area {
+                padding: 40px 15px;
+            }
+
+            .area h2 {
+                font-size: 24px;
+            }
+
+            .area p {
+                font-size: 16px;
+            }
+
+            .badge {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+
+            /* CTA */
+            .cta-section {
+                padding: 50px 15px;
+            }
+
+            .cta-character {
+                display: none;
+            }
+
+            .cta-section h2 {
+                font-size: 24px;
+            }
+
+            .cta-section p {
+                font-size: 16px;
+            }
+
+            .btn-line {
+                padding: 15px 30px;
+                font-size: 16px;
+            }
+
+            /* フッター */
+            footer {
+                padding: 30px 15px;
+            }
+
+            .footer-contact,
+            .footer-legal {
+                font-size: 14px;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .trouble-character {
+                right: -80px;
+                width: 80px;
+            }
+
+            .cta-character {
+                transform: translateX(-200px);
+                width: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header>
+        <img src="https://raw.githubusercontent.com/yoroduyagakki-glitch/yoroduya-gakki/main/image_5369494f-65e7-4401-a703-4100004b1dc9%20(1).png" alt="キャラクター" class="header-character">
+        <div class="container">
+            <div class="logo">よろづ屋がっきー</div>
+            <div class="tagline">家具修理も、スマホ設定も。<br>福岡の"ちょっと困った"を<br>すぐ解決</div>
+            <div class="sub-tagline">元医療機器エンジニアの丁寧な作業で、即日対応可</div>
+            <a href="https://form.lmes.jp/landing-qr/2008007759-JBlKowGN?uLand=2j898m" class="cta-primary">📱 LINEで相談（無料）</a>
+            <div class="coupon-badge">🎁 LINE友達追加で500円OFFクーポン</div>
+        </div>
+    </header>
+
+    <!-- お困りごとセクション -->
+    <section class="trouble fade-in">
+        <div class="container">
+            <h2>こんなお困りごと、ありませんか？</h2>
+            <div class="trouble-content">
+                <img src="https://raw.githubusercontent.com/yoroduyagakki-glitch/yoroduya-gakki/main/image_fd529a15-186e-47f6-a86e-127a53e313d8%20(1).png" alt="びっくりキャラクター" class="trouble-character">
+                <div class="trouble-list">
+                    <ul>
+                        <li>プロジェクターを買ったけど、設置も配線も全部お願いしたい</li>
+                        <li>椅子が壊れたけど、修理できる人が見つからない</li>
+                        <li>スマホの設定が難しすぎて、誰かに教えてほしい</li>
+                        <li>Wi-Fiが繋がらない…誰か助けて</li>
+                        <li>「工事」と「設定」を別々に頼むのが面倒</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- サービスセクション -->
+    <section class="services fade-in">
+        <div class="container">
+            <h2>🔧 できること</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="https://raw.githubusercontent.com/yoroduyagakki-glitch/yoroduya-gakki/main/image_97c056e0-3aaa-4fb0-98bd-44f50d5b950a%20(1).png" alt="家具修理" class="service-character">
+                    <h3>🪑 家具修理</h3>
+                    <ul>
+                        <li>椅子のキャスター交換</li>
+                        <li>テーブルのぐらつき修理</li>
+                        <li>引き出しレールの交換</li>
+                        <li>扉の蝶番調整</li>
+                    </ul>
+                    <div class="service-price">8,000円〜</div>
+                </div>
+                
+                <div class="service-card">
+                    <img src="https://raw.githubusercontent.com/yoroduyagakki-glitch/yoroduya-gakki/main/image_4d884af4-f77a-478d-b35e-a2a7b0159818%20(1).png" alt="スマホ設定" class="service-character">
+                    <h3>📱 スマホ設定</h3>
+                    <ul>
+                        <li>アプリのインストール・設定</li>
+                        <li>Wi-Fi接続設定</li>
+                        <li>LINEやメール設定</li>
+                        <li>バックアップ・データ移行</li>
+                    </ul>
+                    <div class="service-price">6,000円〜</div>
+                </div>
+                
+                <div class="service-card">
+                    <img src="https://raw.githubusercontent.com/yoroduyagakki-glitch/yoroduya-gakki/main/image_c7346b92-0ead-416f-8ea0-bbe1c0f3a1aa%20(1).png" alt="プロジェクター設置" class="service-character">
+                    <h3>📽️ プロジェクター設置</h3>
+                    <ul>
+                        <li>天吊り・壁掛け設置</li>
+                        <li>HDMI・電源配線</li>
+                        <li>スクリーン設置</li>
+                        <li>映像・音声の調整</li>
+                    </ul>
+                    <div class="service-price">14,000円〜</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- プロフィール -->
+    <section class="profile fade-in">
+        <div class="container">
+            <h2>👨 誰がやるの？</h2>
+            <div class="profile-content">
+                <div class="profile-image">
+                    <img src="https://i.imgur.com/WPactjq.png" alt="北垣敬紘（がっきー）">
+                </div>
+                <div class="profile-text">
+                    <h3>北垣敬紘（がっきー）</h3>
+                    <p class="name-sub">元医療機器フィールドサービスエンジニア</p>
+                    <p>10年間、医療現場で精密機器の修理・保守を担当してきました。病院という「絶対に止められない現場」で培った<strong>丁寧・清潔・確実な作業</strong>が強みです。</p>
+                    <p>「即レス・即対応」をモットーに、福岡県内どこでも駆けつけます。アナログ作業もデジタル設定も、まとめてお任せください。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 料金 -->
+    <section class="pricing fade-in">
+        <div class="container">
+            <h2>💰 料金目安</h2>
+            <div class="pricing-list">
+                <div class="pricing-item">
+                    <span class="service-name">🚗 基本出張費（福岡市内）</span>
+                    <span class="price">3,000円〜</span>
+                </div>
+                <div class="pricing-item">
+                    <span class="service-name">🪑 家具修理</span>
+                    <span class="price">8,000円〜</span>
+                </div>
+                <div class="pricing-item">
+                    <span class="service-name">📽️ プロジェクター設置</span>
+                    <span class="price">14,000円〜</span>
+                </div>
+                <div class="pricing-item">
+                    <span class="service-name">📱 スマホ設定</span>
+                    <span class="price">6,000円〜</span>
+                </div>
+                <div class="pricing-note">
+                    <p><strong>※ 事前見積もり無料</strong></p>
+                    <p><strong>見積後の追加料金について</strong><br>どこまで確認しても現場作業時に追加料金が発生しうることがあります。きちんとご説明させていただきますのでご了承いただけますと幸いです。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 対応エリア -->
+    <section class="area fade-in">
+        <div class="container">
+            <h2>📍 対応エリア</h2>
+            <p>福岡県全域対応</p>
+            <div class="area-badges">
+                <span class="badge">🕘 9:00〜20:00</span>
+                <span class="badge">📅 不定休</span>
+                <span class="badge">🚗 福岡県全域対応</span>
+            </div>
+            <p style="margin-top: 20px; font-size: 14px; color: #666;">※ 交通費は地域により都度ご相談</p>
+        </div>
+    </section>
+
+    <!-- CTAセクション -->
+    <section class="cta-section fade-in">
+        <img src="https://raw.githubusercontent.com/yoroduyagakki-glitch/yoroduya-gakki/main/image_2e0d362e-5557-4dcc-85fe-85aff346461c%20(1).png" alt="駆けつけキャラクター" class="cta-character">
+        <div class="container">
+            <h2>まずは無料相談！</h2>
+            <p>24時間以内に返信します</p>
+            <div class="cta-buttons">
+                <a href="https://form.lmes.jp/landing-qr/2008007759-JBlKowGN?uLand=2j898m" class="btn-line">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="display: inline-block; vertical-align: middle; margin-right: 8px;">
+                        <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314" fill="white"/>
+                    </svg>
+                    LINEで相談する
+                </a>
+            </div>
+            <div class="coupon-badge" style="margin-top: 30px;">🎁 今すぐLINE追加で500円OFFクーポンGET</div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer>
+        <div class="container">
+            <div class="footer-contact">
+                <p><strong>よろづ屋がっきー</strong></p>
+                <p>📞 電話: <a href="tel:07045603032">070-4560-3032</a></p>
+                <p>📧 メール: <a href="/cdn-cgi/l/email-protection#aed7c1dcc1cadbd7cf80c9cfc5c5c7eec9c3cfc7c280cdc1c3"><span class="__cf_email__" data-cfemail="97eef8e5f8f3e2eef6b9f0f6fcfcfed7f0faf6fefbb9f4f8fa">[email&#160;protected]</span></a></p>
+                <p>🕘 営業時間: 9:00〜20:00（不定休）</p>
+            </div>
+            <div class="footer-legal">
+                <p><strong>特定商取引法に基づく表記</strong></p>
+                <p>事業者名: よろづ屋がっきー（北垣敬紘）</p>
+                <p>所在地: 福岡市内（詳細住所はご依頼時にお知らせします）</p>
+                <p>※特定商取引法に基づく表記は、お問い合わせいただいた際に遅滞なく開示いたします。</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- スクロールアニメーション用JavaScript -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // スクロールでふわっと浮き出るアニメーション
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
